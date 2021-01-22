@@ -1,0 +1,20 @@
+
+div {
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid #333;
+    margin: 20px;
+}
+
+div.transition {
+    height: 100px;
+    width: 100px;
+    background-color: #ffffff;
+    transition: background-color 1s linear;
+    -moz-transition: background-color 1s linear;
+    -o-transition: background-color 1s linear;
+    -webkit-transition: background-color 1s linear;
+}
+div.animated {
+    background-color: #ff0000;
+}
