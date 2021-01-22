@@ -1,0 +1,63 @@
+<html>
+   <head>
+      <title>Buton culor</title>
+      <style>
+         .color {
+            vertical-align: center;
+            padding: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            background-color: black;
+         }
+ 
+         .container {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+         }
+ 
+         body {
+            background-color: black;
+         }
+      </style>
+   </head>
+   <body>
+      <div class='container'>
+         
+         <button class='color' data-color='orange'>Orange</button><br/>
+         
+      </div>
+      <script>
+         NodeList.prototype.__proto__ = Array.prototype;
+         document.querySelectorAll('.color').forEach(function (i){
+            var dataColor = i.getAttribute('data-color')
+            i.style.color = dataColor;
+    
+            i.onmouseover = (function (){
+               document.body.style.backgroundColor = dataColor;
+               i.style.backgroundColor = dataColor;
+               i.style.color = 'black';
+            });
+    
+            i.onmouseout = (function (){
+               i.style.color = dataColor;
+               i.style.backgroundColor = '';
+               document.body.style.backgroundColor = '';
+            });
+    
+            i.onmousedown = (function (e){
+               if (e.button != 0) return;
+               i.style.backgroundColor = 'white';
+            });
+    
+            i.onmouseup = (function (e){
+               if (e.button != 0) return;
+               i.style.backgroundColor = '';
+               i.style.color = 'white';
+               alert( '(' + e.x + '; ' + e.y +')' )
+            });
+         });
+      </script>
+   </body>
+</html>
